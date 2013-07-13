@@ -13,12 +13,12 @@
 </head>
 <body>
   <script type="text/x-handlebars">
-    <h2>Welcome to Ember.js</h2>
+    <h2>{{name}}</h2>
+    <h3>{{timer}}</h3>
 
     {{outlet}}
   </script>
   <script type="text/x-handlebars" data-template-name="index">
-    <h2>{{App.secondsOnPage}}</h2>
 
     <ul>
     {{#each item in model}}
