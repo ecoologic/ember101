@@ -17,26 +17,31 @@
 </head>
 <body>
 
+  <!-- Cannot call get with 'id' on an undefined object. caused by {{#each users}} -->
+  <!-- TypeError: options.hash is undefined - caused by {{#each in users}} -->
+  <!-- div not closed caused by html comments in handlebars -->
+  <!-- {{linkTo 'model' instance}} will link to instance.id -->
   <script type="text/x-handlebars">
     <header>
       <h2>{{name}}</h2>
       <h3>{{timer}}</h3>
     </header>
 
+    <div class='row fluid'>
+      <ul class='nav nav-list span3 well'>
+        {{#each users}}
+          <li>{{#linkTo 'user' this}}{{first}}{{/linkTo}}</li>
+        {{/each}}
+      </ul>
+    </div>
+
     <div class='container'>
+      <!-- Something you did caused a view to re-render after it rendered but before it was inserted into the DOM. - was caused by double {{outtel}} -->
       {{outlet}}
     </div>
   </script>
 
   <script type="text/x-handlebars" data-template-name="index">
-    <div class='row fluid'>
-      <ul class='nav nav-list span3 well'>
-        {{#each model}}
-          <li>{{#linkTo 'user' this}}{{first}}{{/linkTo}}</li>
-        {{/each}}
-      </ul>
-      <div class='span9 well'>{{outlet}}</div>
-    </div>
   </script>
 
   <script type="text/x-handlebars" id='user'>
