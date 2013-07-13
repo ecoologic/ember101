@@ -29,18 +29,19 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="index">
-    <ul class='nav well'>
-      {{#each model}}
-        {{render 'user' this}}
-      {{/each}}
-    </ul>
+    <div class='row fluid'>
+      <ul class='nav nav-list span3 well'>
+        {{#each model}}
+          <li>{{#linkTo 'user' this}}{{first}}{{/linkTo}}</li>
+        {{/each}}
+      </ul>
+      <div class='span9 well'>{{outlet}}</div>
+    </div>
   </script>
 
   <script type="text/x-handlebars" id='user'>
-    <li>
-      {{first}}
-      <img {{bindAttr src='avatar'}} class='avatar'>
-    </li>
+    <h2>{{first}} {{last}}</h2>
+    <img {{bindAttr src='avatar'}} class='avatar pull-right'>
   </script>
 
 </body>

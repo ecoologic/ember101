@@ -1,7 +1,7 @@
 App = Ember.Application.create();
 
 App.Router.map(function() {
-  // put your routes here
+  this.resource('user', {path: '/users/:user_id'});
 });
 
 // App.IndexRoute = [...] caused
@@ -11,8 +11,7 @@ App.ApplicationRoute = Ember.Route.extend({
   model: function() {
     return {
       name: "Ember101.com Tutorial",
-      timer: 0,
-      users: users
+      timer: 0
     };
   },
   // called when entering the route
@@ -33,6 +32,14 @@ App.IndexRoute = Ember.Route.extend({
     return users;
   }
 });
+
+// id out of array caused
+// Cannot call get with 'id' on an undefined object.
+App.UserRoute = Ember.Route.extend({
+  model: function(params) {
+    return users[params.user_id];
+  }
+})
 
 // data
 var users = [
