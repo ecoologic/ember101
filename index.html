@@ -21,12 +21,18 @@
   <script type="text/x-handlebars" data-template-name="index">
 
     <ul>
-    {{#each item in model}}
-      <li>{{item}}</li>
+    {{#each model}}
+      {{render 'user' this}}
     {{/each}}
     </ul>
   </script>
 
+  <script type="text/x-handlebars" id='user'>
+      <li>
+        {{first}}
+        <img {{bindAttr src='avatar'}}>
+      </li>
+  </script>
 
 </body>
 </html>
