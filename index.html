@@ -16,26 +16,31 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
   <script type="text/x-handlebars">
-    <h2>{{name}}</h2>
-    <h3>{{timer}}</h3>
+    <header>
+      <h2>{{name}}</h2>
+      <h3>{{timer}}</h3>
+    </header>
 
-    {{outlet}}
+    <div class='container'>
+      {{outlet}}
+    </div>
   </script>
-  <script type="text/x-handlebars" data-template-name="index">
 
-    <ul>
-    {{#each model}}
-      {{render 'user' this}}
-    {{/each}}
+  <script type="text/x-handlebars" data-template-name="index">
+    <ul class='nav well'>
+      {{#each model}}
+        {{render 'user' this}}
+      {{/each}}
     </ul>
   </script>
 
   <script type="text/x-handlebars" id='user'>
-      <li>
-        {{first}}
-        <img {{bindAttr src='avatar'}} class='avatar'>
-      </li>
+    <li>
+      {{first}}
+      <img {{bindAttr src='avatar'}} class='avatar'>
+    </li>
   </script>
 
 </body>
