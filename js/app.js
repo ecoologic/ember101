@@ -43,6 +43,12 @@ App.UserRoute = Ember.Route.extend({
 App.EditUserRoute = Ember.Route.extend({
   model: function(params) {
     return users[params.user_id];
+  },
+  events: {
+    update: function() {
+      var user = this.modelFor('editUser');
+      this.transitionTo('user', user);
+    }
   }
 });
 

@@ -52,8 +52,24 @@
   </script>
 
   <script type="text/x-handlebars" id='editUser'>
+
     <h2>Edit {{first}} {{last}}</h2>
     <img {{bindAttr src='avatar'}} class='avatar pull-right'>
+
+    <form {{action update on='submit'}}>
+      <label>
+        First name
+        {{input type='text' value=first}}
+      </label>
+      <label>
+        Last name
+        {{input type='text' value=last}}
+      </label>
+      <div class='controls'>
+        <button type='submit' class='btn btn-primary'>Save</button>
+      </div>
+    </form>
+
   </script>
 </body>
 </html>
