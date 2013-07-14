@@ -21,6 +21,7 @@
   <!-- TypeError: options.hash is undefined - caused by {{#each in users}} -->
   <!-- div not closed caused by html comments in handlebars -->
   <!-- {{linkTo 'model' instance}} will link to instance.id -->
+  <!-- Expecting 'CLOSE', 'DATA', 'STRING', 'INTEGER', 'BOOLEAN', 'ID', got 'INVALID' caused by extra comma in linkTo -->
   <script type="text/x-handlebars">
     <header>
       <h2>{{name}}</h2>
@@ -47,7 +48,12 @@
   <script type="text/x-handlebars" id='user'>
     <h2>{{first}} {{last}}</h2>
     <img {{bindAttr src='avatar'}} class='avatar pull-right'>
+    {{#linkTo 'editUser' this}}Edit{{/linkTo}}
   </script>
 
+  <script type="text/x-handlebars" id='editUser'>
+    <h2>Edit {{first}} {{last}}</h2>
+    <img {{bindAttr src='avatar'}} class='avatar pull-right'>
+  </script>
 </body>
 </html>
