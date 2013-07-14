@@ -4,3 +4,4 @@ html, body {
 }
 
 img.avatar { width: 50px; }
+a.active { color: red; }
