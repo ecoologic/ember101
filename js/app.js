@@ -16,6 +16,15 @@ App.ApplicationRoute = Ember.Route.extend({
       users: users
     };
   },
+  events: {
+    newUser: function() {
+      var users = this.modelFor('application').users;
+      var user = users.pushObject({
+        id: users.length,
+      });
+      this.transitionTo('editUser', user);
+    }
+  },
   // called when entering the route
   activate: function() {
     this.interval = setInterval(function() {
